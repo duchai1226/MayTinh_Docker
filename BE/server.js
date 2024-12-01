@@ -14,18 +14,6 @@ const db = mysql.createPool({
     database: 'maytinh'
 });
 
-// Tạo bảng nếu chưa tồn tại
-db.query(`
-    CREATE TABLE IF NOT EXISTS calculations (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        num1 FLOAT NOT NULL,
-        num2 FLOAT NOT NULL,
-        operation VARCHAR(10) NOT NULL,
-        result FLOAT NOT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    );
-`);
-
 // API lưu lịch sử
 app.post('/save-calculation', async (req, res) => {
     const { num1, num2, operation, result } = req.body;
