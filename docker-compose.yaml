@@ -1,0 +1,31 @@
+services:
+  web:
+    build: ./FE
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+      - backend
+  db:
+    image: mysql:8.0
+    container_name: mysql_db
+    command: "--innodb_use_native_aio=0"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123@Abcd
+      MYSQL_DATABASE: maytinh
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 123@Abcd
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+  backend:
+    build: ./BE
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+volumes:
+  mysql_data:

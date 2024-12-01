@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <!-- History Section -->
+        <div class="history">
+            <h2>Calculation History</h2>
+            <ul id="history"></ul>
+        </div>
+        
+        <!-- Calculator Section -->
+        <div class="calculator">
+            <h1>Calculator</h1>
+            <input type="number" id="num1" placeholder="Number 1" required>
+            <input type="number" id="num2" placeholder="Number 2" required>
+            <select id="operation">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <button id="calculateButton">Calculate</button>
+            <div id="result"></div>
+        </div>
+    </div>
+</body>
+</html>
